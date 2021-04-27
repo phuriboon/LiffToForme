@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+  <title>กำลังเข้าสู่ Form</title>
+  <style>
+    .centerScreen {
+      margin-top: 20;
+      margin-right: auto;
+      margin-bottom: 20;
+      margin-left: auto;
+    }
+  </style>
+</head>
+
+<body style="background-color: powderblue;">
+  <div class="centerScreen">
+    <center>
+      <img src="https://drive.google.com/uc?id=1mEyShWSX9rPf4klIDeMTlHAOc4BsySFK" height="200px" , width="200px" />
+      <h1>
+        กำลังเข้าสู่ Google Form กรุณารอซักครู่
+      </h1>
+    </center>
+  </div>
+</body>
+<footer>
+  
+  <script src="https://static.line-scdn.net/liff/edge/2.9/sdk.js"></script>
+  <script>
+    /// Config Your LIFF ID Here
+    const liffId = "1655908659-zY5YwjEE";
+    /// Config Your LIFF ID Here
+    liff.ready
+      .then(() => {
+        if (liff.isLoggedIn()) {
+          return liff.getProfile();
+        } else {
+          liff.login({
+            //redirectUri: "https://script.google.com/macros/s/AKfycbzVZoxA9zcegjDI1b4MZ-tqDaqJwV_j88qQ97V-PYG5HKXACcSSGK8H4wHg51k4vBNLLw/exec",
+          });
+        }
+      })
+      .then((profile) => {
+        window.location.replace(
+          'https://docs.google.com/forms/d/e/1FAIpQLScv_CPadG2YbYJJnZdjAuAp43uBZMg0tYnNnvLxie6d9ECagw/viewform?usp=pp_url&entry.425496519=${profile.userId}&entry.2017691434=${profile.displayName}&entry.1782615134=${profile.pictureUrl}&entry.893676728=${profile.statusMessage}'
+        );
+      });
+    liff.init(
+      {
+        liffId: liffId,
+      },
+      () => {},
+      (err) => {
+        window.alert(err);
+      }
+    );
+  </script>
+</footer>
